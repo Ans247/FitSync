@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "356033021292",
+    "project_id": "fit-sync-9b103",
+    "storage_bucket": "fit-sync-9b103.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356033021292:android:13c2fed12161aed8399f49",
+        "android_client_info": {
+          "package_name": "com.example.fitsync"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCH7mdwUx3iApFXQw7Hikku-8Q87-Nvt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
