@@ -40,8 +40,13 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.firebase.auth)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.firestore)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    implementation ("com.google.android.gms:play-services-auth:21.2.0")
+
+
 
 }

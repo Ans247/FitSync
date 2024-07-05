@@ -2,4 +2,5 @@
     <string name="app_name">Fit Sync</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="client_id">356033021292-msm5t8gh9k5oqqic5bofn9rk0pfkji9t.apps.googleusercontent.com</string>
 </resources>

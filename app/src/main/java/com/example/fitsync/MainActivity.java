@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Log in success
                                 Toast.makeText(MainActivity.this, "Admin Login Successful", Toast.LENGTH_SHORT).show();
-                                // startActivity(new Intent(MainActivity.this, Home.class));
+                                 //startActivity(new Intent(MainActivity.this, AdminHome.class));
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -170,17 +170,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         manager = getSupportFragmentManager();
+        adminLoginFrag=manager.findFragmentById(R.id.adminLogin);
         loginFrag = manager.findFragmentById(R.id.loginfrag);
         signupFrag = manager.findFragmentById(R.id.signupfrag);
-        adminLoginFrag=manager.findFragmentById(R.id.adminLogin);
+
+
+        if (adminLoginFrag != null) {
+            adminLoginFragView = adminLoginFrag.getView();
+        }
         if (loginFrag != null) {
             loginFragView = loginFrag.getView();
         }
         if (signupFrag != null) {
             signupFragView = signupFrag.getView();
         }
-        if (adminLoginFrag != null) {
-            adminLoginFragView = adminLoginFrag.getView();
+        if(adminLoginFragView != null ) {
+
+            etUsernameA = adminLoginFragView.findViewById(R.id.etUsernameA);
+            etPasswordA = adminLoginFragView.findViewById(R.id.etPasswordA);
+            btnLoginA =   adminLoginFragView.findViewById(R.id.btnLoginA);
+            btnCancelA = adminLoginFragView.findViewById(R.id.btnCancelA);
         }
         // Perform null checks before accessing views inside fragments
         if (signupFragView != null) {
@@ -197,17 +206,13 @@ public class MainActivity extends AppCompatActivity {
             etPasswordL = loginFragView.findViewById(R.id.etPassword);
             btnLogin = loginFragView.findViewById(R.id.btnLogin);
             btnCancelL = loginFragView.findViewById(R.id.btnCancel);
+            tvAdmin =loginFragView.findViewById(R.id.tvAdmin);
         }
-        if(adminLoginFragView!= null ) {
-            tvSignup = loginFragView.findViewById(R.id.tvSignup);
-            etUsernameL = loginFragView.findViewById(R.id.etUsername);
-            etPasswordL = loginFragView.findViewById(R.id.etPassword);
-            btnLogin = loginFragView.findViewById(R.id.btnLogin);
-            btnCancelL = loginFragView.findViewById(R.id.btnCancel);
-        }
+
 
         manager.beginTransaction()
                 .hide(signupFrag)
+                .hide(adminLoginFrag)
                 .commit();
     }
 }

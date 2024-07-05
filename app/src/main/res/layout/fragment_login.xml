@@ -80,5 +80,15 @@
         android:id="@+id/tvSignup"
         android:layout_margin="20dp"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login as Admin"
+        android:gravity="right"
+        android:id="@+id/tvAdmin"
+        android:layout_margin="20dp"
+        />
+
+
 
 </LinearLayout>
