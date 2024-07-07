@@ -20,9 +20,67 @@
             android:background="@color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
+
+
         <!-- Your main content layout here -->
     </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="@color/white">
 
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FitSync"
+            android:textSize="80sp"
+            android:textColor="@color/primaryBlue"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp" />
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+
+            />
+        <!-- Slogan -->
+        <TextView
+            android:id="@+id/appSlogan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Empowering Your Fitness Goals"
+            android:textSize="20sp"
+            android:textColor="@color/primaryButton"
+            android:fontFamily="sans-serif"
+            android:layout_below="@id/appName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+
+
+        <TextView
+            android:id="@+id/aboutApp"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appSlogan"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="80dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:justificationMode="inter_word"
+            android:layout_centerHorizontal="true"
+            android:padding="16dp"
+            android:paddingLeft="0dp"
+            android:text="Welcome to FitSync, your ultimate fitness companion. Stay motivated with personalized plans, track your progress, and access expert tips to achieve your fitness goals."
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"

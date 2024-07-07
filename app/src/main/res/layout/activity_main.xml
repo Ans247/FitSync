@@ -29,4 +29,11 @@
         tools:layout="@layout/fragment_admin_login"
         android:id="@+id/adminLogin"
         />
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        class="com.example.fitsync.InitialFrag"
+        tools:layout="@layout/fragment_admin_login"
+        android:id="@+id/initialFrag"
+        />
 </LinearLayout>

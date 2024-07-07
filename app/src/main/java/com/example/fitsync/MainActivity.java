@@ -27,9 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentManager manager;
 
-    Fragment loginFrag, signupFrag, adminLoginFrag;
-    View loginFragView, signupFragView, adminLoginFragView;
-    TextView tvLogin, tvSignup, tvAdmin;
+    Fragment loginFrag, signupFrag, adminLoginFrag,initialFrag;
+    View loginFragView, signupFragView, adminLoginFragView, initialFragView;
+    TextView tvLogin, tvSignup,homeAdmin;
 
     // hooks for signup
     TextInputEditText  etName, etUsernameS, etPasswordS, etCPasswordS;
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     //hooks of admin login
     TextInputEditText etUsernameA, etPasswordA;
-    Button btnLoginA, btnCancelA;
+    Button btnLoginA, btnCancelA, homeSign,homeCreate;
 
 
     @Override
@@ -53,6 +53,24 @@ public class MainActivity extends AppCompatActivity {
 
         init();
 
+        homeCreate.setOnClickListener(v -> manager.beginTransaction()
+                .hide(loginFrag)
+                .hide(adminLoginFrag)
+                .hide(initialFrag)
+                .show(signupFrag)
+                .commit());
+        homeSign.setOnClickListener(v -> manager.beginTransaction()
+                .show(loginFrag)
+                .hide(adminLoginFrag)
+                .hide(initialFrag)
+                .hide(signupFrag)
+                .commit());
+        homeAdmin.setOnClickListener(v-> manager.beginTransaction()
+                .hide(loginFrag)
+                .show(adminLoginFrag)
+                .hide(initialFrag)
+                .hide(signupFrag)
+                .commit());
         tvSignup.setOnClickListener(v -> {
             if (signupFrag != null && loginFrag != null) {
                 manager.beginTransaction()
@@ -73,16 +91,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        tvAdmin.setOnClickListener(v -> {
-            if (signupFrag != null && loginFrag != null) {
-                manager.beginTransaction()
-                        .show(adminLoginFrag)
-                        .hide(signupFrag)
-                        .hide(loginFrag)
-                        .commit();
-            }
 
-        });
 
         btnSignup.setOnClickListener(v -> {
             final String email = Objects.requireNonNull(etUsernameS.getText()).toString().trim();
@@ -137,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     // Signup failed
-                                    Toast.makeText(MainActivity.this, "Signup failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(MainActivity.this, "Signup failed: " + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             });
                 } else {
@@ -145,7 +154,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        btnCancelS.setOnClickListener(v -> finish());
+        btnCancelS.setOnClickListener(v -> manager.beginTransaction()
+                .hide(adminLoginFrag)
+                .show(initialFrag)
+                .hide(signupFrag)
+                .hide(loginFrag)
+                .commit()
+        );
+        btnCancelL.setOnClickListener(v -> manager.beginTransaction()
+                .hide(adminLoginFrag)
+                .show(initialFrag)
+                .hide(signupFrag)
+                .hide(loginFrag)
+                .commit()
+        );
 
 
         btnLogin.setOnClickListener(v -> {
@@ -186,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
-                                Toast.makeText(MainActivity.this, "Admin Login failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Admin Login failed: " + Objects.requireNonNull(Objects.requireNonNull(Objects.requireNonNull(task.getException()))).getMessage(), Toast.LENGTH_SHORT).show();
                             }
                         });
             }
@@ -209,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
         adminLoginFrag=manager.findFragmentById(R.id.adminLogin);
         loginFrag = manager.findFragmentById(R.id.loginfrag);
         signupFrag = manager.findFragmentById(R.id.signupfrag);
+        initialFrag = manager.findFragmentById(R.id.initialFrag);
 
 
         if (adminLoginFrag != null) {
@@ -219,7 +242,10 @@ public class MainActivity extends AppCompatActivity {
         }
         if (signupFrag != null) {
             signupFragView = signupFrag.getView();
+        } if (initialFrag != null) {
+            initialFragView = initialFrag.getView();
         }
+
         if(adminLoginFragView != null ) {
 
             etUsernameA = adminLoginFragView.findViewById(R.id.etUsernameA);
@@ -242,13 +268,21 @@ public class MainActivity extends AppCompatActivity {
             etPasswordL = loginFragView.findViewById(R.id.etPassword);
             btnLogin = loginFragView.findViewById(R.id.btnLogin);
             btnCancelL = loginFragView.findViewById(R.id.btnCancel);
-            tvAdmin =loginFragView.findViewById(R.id.tvAdmin);
+
+        }
+        if (loginFragView != null) {
+            homeAdmin= initialFragView.findViewById(R.id.homeAdmin);
+            homeCreate= initialFragView.findViewById(R.id.homeCreate);
+            homeSign= initialFragView.findViewById(R.id.homeSign);
+
         }
 
 
         manager.beginTransaction()
+                .show(initialFrag)
                 .hide(signupFrag)
                 .hide(adminLoginFrag)
+                .hide(loginFrag)
                 .commit();
     }
 }

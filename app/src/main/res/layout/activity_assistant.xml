@@ -40,7 +40,9 @@
             android:layout_height="48dp"
             android:id="@+id/btnSend"
             android:background="@drawable/ic_send"
-            android:layout_alignParentEnd="true"/>
+
+            android:layout_alignParentEnd="true"
+            />
 
 
     </RelativeLayout>
