@@ -103,7 +103,7 @@ public class Assistant extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer sk-proj-1VljHbEznjah9mEBE7gWT3BlbkFJcn3K5oqVyTG50I8vx9lw")
+                .header("Authorization", "Bearer ")
                 .post(body)
                 .build();
 
