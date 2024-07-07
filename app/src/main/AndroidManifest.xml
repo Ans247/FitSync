@@ -2,6 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,12 +18,35 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FitSync"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:networkSecurityConfig="@xml/network_security_config">
+
         <activity
-            android:name=".Home"
+            android:name=".NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUp"
+            android:name=".Assistant"
+            android:exported="false" />
+        <activity
+            android:name=".SetReminder"
+            android:exported="false" />
+        <activity
+            android:name=".HealthTipsList"
+            android:exported="false" />
+        <activity
+            android:name=".ProductList"
+            android:exported="false" />
+        <activity
+            android:name=".add_tip"
+            android:exported="false" />
+        <activity
+            android:name=".add_product"
+            android:exported="false" />
+        <activity
+            android:name=".AdminHome"
+            android:exported="false" />
+        <activity
+            android:name=".Home"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -27,6 +57,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ReminderReceiver" />
     </application>
 
 </manifest>

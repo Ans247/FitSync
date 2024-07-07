@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:backgroundTint="#1E88E5"
+        android:layout_marginEnd="80dp"
+        android:id="@+id/leftChat">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello! How are you?"
+            android:id="@+id/leftTextChat"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:id="@+id/rightChat"
+        android:backgroundTint="#1E88E5"
+        android:layout_marginStart="80dp"
+        android:layout_alignParentEnd="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello! How are you?"
+            android:id="@+id/rightTextChat"
+            />
+    </LinearLayout>
+</RelativeLayout>

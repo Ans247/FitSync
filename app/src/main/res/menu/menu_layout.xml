@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/optTips"
+        android:title="Get Health Tips"
+        android:icon="@drawable/ic_tips"/>
+    <item
+        android:id="@+id/optProduct"
+        android:title="Buy Health Products"
+        android:icon="@drawable/ic_products"/>
+    <item
+        android:id="@+id/optSettings"
+        android:title="Settings"
+        android:icon="@drawable/ic_setting"/>
+    <item
+        android:id="@+id/optReminder"
+        android:title="Set Health Reminder"
+        android:icon="@drawable/ic_reminder"/>
+    <item
+        android:id="@+id/optAssistant"
+        android:title="Chat with Health Assitant"
+        android:icon="@drawable/ic_assistant"/>
+    <item
+        android:id="@+id/optLogOut"
+        android:title="Log Out"
+        android:icon="@drawable/ic_logout"/>
+</menu>

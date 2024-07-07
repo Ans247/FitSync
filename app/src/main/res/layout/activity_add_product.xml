@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".SignupFrag">
+    tools:context=".add_product">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register Yourself Here....."
+        android:text="Add Product"
         android:gravity="center"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -27,8 +27,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the Name"
-            android:id="@+id/etName"
+            android:hint="Enter the Product Name"
+            android:id="@+id/etProductName"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -39,8 +39,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the email"
-            android:id="@+id/etUsername"
+            android:hint="Enter the Description"
+            android:id="@+id/etProductDescription"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -55,28 +55,28 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the password"
-            android:id="@+id/etPassword"
-            android:inputType="textPassword"
+            android:hint="Enter the Quantity"
+            android:id="@+id/etQuantity"
+
             />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         >
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Confirm Password"
-            android:id="@+id/etCPassword"
-            android:inputType="textPassword"
+            android:hint="Enter the Image URL"
+            android:id="@+id/etImage"
+
             />
     </com.google.android.material.textfield.TextInputLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,19 +94,12 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Signup"
+            android:text="Save"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSignup"
+            android:id="@+id/btnSave"
             />
     </LinearLayout>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Already a user?"
-        android:gravity="right"
-        android:id="@+id/tvLogin"
-        android:layout_margin="20dp"
-        />
+
 
 </LinearLayout>

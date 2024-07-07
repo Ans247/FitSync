@@ -1,0 +1,31 @@
+<!-- admin_home.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Button to add Health Tip -->
+    <Button
+        android:id="@+id/btnAddHealthTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Health Tip"
+        />
+
+    <!-- Button to add Product -->
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAddHealthTip"
+        android:text="Add Product"
+         />
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAddProduct"
+        android:text="Log Out"
+         />
+
+</RelativeLayout>

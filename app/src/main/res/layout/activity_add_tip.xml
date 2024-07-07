@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".SignupFrag">
+    tools:context=".add_tip">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register Yourself Here....."
+        android:text="Add Health Tip"
         android:gravity="center"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -27,8 +26,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the Name"
-            android:id="@+id/etName"
+            android:hint="Enter the Health Tip Title"
+            android:id="@+id/etTipTitle"
             />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
@@ -39,44 +38,11 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="Enter the email"
-            android:id="@+id/etUsername"
+            android:hint="Enter the Description"
+            android:id="@+id/etTipDescription"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Enter the password"
-            android:id="@+id/etPassword"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="Confirm Password"
-            android:id="@+id/etCPassword"
-            android:inputType="textPassword"
-            />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -94,19 +60,9 @@
         <Button
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:text="Signup"
+            android:text="Save"
             android:layout_height="wrap_content"
-            android:id="@+id/btnSignup"
+            android:id="@+id/btnSave"
             />
     </LinearLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Already a user?"
-        android:gravity="right"
-        android:id="@+id/tvLogin"
-        android:layout_margin="20dp"
-        />
-
 </LinearLayout>

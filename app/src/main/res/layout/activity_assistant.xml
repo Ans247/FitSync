@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout"
+        android:id="@+id/recylce"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Welcon to AI Health Assistant"
+        android:id="@+id/welcome"
+        android:gravity="center"
+        android:textSize="28dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_layout"
+        android:padding="8dp">
+    <EditText
+        android:id="@+id/etUserInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:hint="Ask something..."
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:layout_toLeftOf="@+id/btnSend"
+
+        />
+        <ImageButton
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:id="@+id/btnSend"
+            android:background="@drawable/ic_send"
+            android:layout_alignParentEnd="true"/>
+
+
+    </RelativeLayout>
+
+   
+
+    
+
+</RelativeLayout>
