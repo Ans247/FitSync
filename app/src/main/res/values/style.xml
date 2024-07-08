@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
 
-    <!-- PopupOverlay theme for Toolbar -->
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    </style>
+
+    <style name="OverflowMenu" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_menu</item>
+        <item name="android:tint">@android:color/white</item>
+    </style>
 </resources>

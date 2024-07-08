@@ -92,7 +92,7 @@ public class Assistant extends AppCompatActivity {
         try {
             jsonBody.put("model", "gpt-3.5-turbo");
             jsonBody.put("messages", new JSONArray().put(new JSONObject().put("role", "user").put("content", question)));
-            jsonBody.put("max_tokens", 150);
+            jsonBody.put("max_tokens", 2200);
             jsonBody.put("temperature", 0.7); // Adjust temperature as needed
         } catch (JSONException e) {
             Log.e(TAG, "JSON Exception: " + e.getMessage());
@@ -103,7 +103,7 @@ public class Assistant extends AppCompatActivity {
         RequestBody body = RequestBody.create(jsonBody.toString(), JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization", "Bearer sk-proj-1VljHbEznjah9mEBE7gWT3BlbkFJcn3K5oqVyTG50I8vx9lw")
+                .header("Authorization", "Bearer sk-proj-3h6FeuMeB24yfWz7tUyQT3BlbkFJJ0e4YC9mCSINqI4QxKLf")
                 .post(body)
                 .build();
 

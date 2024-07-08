@@ -6,21 +6,26 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 
-
+import com.google.android.gms.ads.interstitial.InterstitialAd;
 import com.google.android.material.navigation.NavigationView;
 import android.view.MenuItem;
 import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private AdView mAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,15 +43,24 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
                 this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        toggle.getDrawerArrowDrawable().setColor(ContextCompat.getColor(this, R.color.primaryButton));
 
         // Set user details in the header
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            TextView tvName = navigationView.getHeaderView(0).findViewById(R.id.tvNameH); // Assuming this TextView exists in your header layout
-            TextView tvEmail = navigationView.getHeaderView(0).findViewById(R.id.tvEmailH); // Assuming this TextView exists in your header layout
-            tvName.setText(user.getDisplayName()); // Set user name if available
-            tvEmail.setText(user.getEmail()); // Set user email
+            TextView tvName = navigationView.getHeaderView(0).findViewById(R.id.tvNameH);
+            TextView tvEmail = navigationView.getHeaderView(0).findViewById(R.id.tvEmailH);
+            tvName.setText(user.getDisplayName());
+            tvEmail.setText(user.getEmail());
         }
+
+        // Initialize Mobile Ads SDK
+        MobileAds.initialize(this, initializationStatus -> {});
+
+        // Load a banner ad
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
     }
 
     @Override
@@ -69,12 +83,10 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(new Intent(Home.this, ProductList.class));
             finish();
 
-        }
-        else if (id == R.id.optReminder) {
+        } else if (id == R.id.optReminder) {
             startActivity(new Intent(Home.this, SetReminder.class));
             finish();
-        }
-        else if (id == R.id.optAssistant) {
+        } else if (id == R.id.optAssistant) {
             startActivity(new Intent(Home.this, Assistant.class));
             finish();
         } else if (id == R.id.optSettings) {
@@ -82,10 +94,11 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         } else if (id == R.id.optLogOut) {
             FirebaseAuth.getInstance().signOut();
             startActivity(new Intent(Home.this, MainActivity.class));
-            finish(); // Close
+            finish();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
 }
+
